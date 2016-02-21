@@ -20,7 +20,28 @@ $dir = mt_rand(1, 2000000000) . mt_rand(1, 2000000000) . mt_rand(1, 2000000000);
 
 mkdir("l/" . $dir);
 chdir("l/" . $dir);
-file_put_contents("index.html", "<script>var r = Math.floor((Math.random()*2)+1); if(r == 1){window.location = '" . $GLOBALS["l1"] . "'}else{window.location = '" . $GLOBALS["l2"] . "'}</script>");
+
+$fcon = "<script src='../cookie/src/js.cookie.js'></script>
+<script>
+
+	if(Math.floor((Math.random()*2)+1) == 1){
+		var redir =  '" . $GLOBALS["l1"] . "';
+	}else{
+		var redir =  '" . $GLOBALS["l2"] . "';
+	}
+
+	var uid = '" . $dir . "' + '-d5050';
+	
+	var dCookie = Cookies.get(uid);
+	
+	if(typeof dCookie === 'undefined'){
+    		Cookies.set(uid, redir, { expires: 0.0006944444444444445 });
+    		window.location = redir;
+	}else{window.location = dCookie;}
+
+</script>";
+
+file_put_contents("index.html", $fcon);
 
 $fu = "http://5050.degstu.com/l/" . $dir;
 
