@@ -5,7 +5,7 @@ index.html - UI
 
 process.php - Does the dirty work, creating links and such
 
-l - folder w/ all the links
+l - folder w/ all the links, cookie library
 
 l/index.html - redirects to root index.html
 
