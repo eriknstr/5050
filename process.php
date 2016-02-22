@@ -45,7 +45,15 @@ file_put_contents("index.html", $fcon);
 
 $fu = "http://5050.degstu.com/l/" . $dir;
 
-echo "<font face='arial'><center><div style='width:50%;'><input type='text' value='" . $fu . "'/></div></center></font>";
+echo "<font face='arial'>
+<center>
+<div style='width:50%;'>
+<a href='http://www.reddit.com/r/FiftyFifty/submit?url=" . $fu . "'>Submit to Reddit</a><p />
+<input type='text' value='" . $fu . "'/>
+<p />
+</div>
+</center>
+</font>";
 }else{gen();}
 }
 
