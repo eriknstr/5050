@@ -26,27 +26,18 @@ $dir = mt_rand(1, 2000000000) . mt_rand(1, 2000000000) . mt_rand(1, 2000000000);
 mkdir("l/" . $dir);
 chdir("l/" . $dir);
 
-$fcon = "<script src='../cookie/src/js.cookie.js'></script>
-<script>
-
-	if(Math.floor((Math.random()*2)+1) == 1){
-		var redir =  '" . $GLOBALS["l1"] . "';
+$fcon = "<?php
+	error_reporting(0);
+	\$d = date('i');
+	\$d = intval(\$d);
+	if (\$d % 2 == 0) {
+		header('Location: " . $GLOBALS["l1"] . "');
 	}else{
-		var redir =  '" . $GLOBALS["l2"] . "';
+		header('Location: " . $GLOBALS["l2"] . "');
 	}
+" . '?>' . "";
 
-	var uid = '" . $dir . "' + '-d5050';
-	
-	var dCookie = Cookies.get(uid);
-	
-	if(typeof dCookie === 'undefined'){
-    		Cookies.set(uid, redir, { expires: 0.0006944444444444445 });
-    		window.location = redir;
-	}else{window.location = dCookie;}
-
-</script>";
-
-file_put_contents("index.html", $fcon);
+file_put_contents("index.php", $fcon);
 
 $fu = ServerURL . $dir;
 
