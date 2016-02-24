@@ -35,7 +35,7 @@ $fcon = "<?php
 	}else{
 		header('Location: " . $GLOBALS["l2"] . "');
 	}
-\?>";
+" . '?>' . "";
 
 file_put_contents("index.php", $fcon);
 
