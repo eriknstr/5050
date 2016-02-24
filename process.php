@@ -28,9 +28,9 @@ chdir("l/" . $dir);
 
 $fcon = "<?php
 	error_reporting(0);
-	$d = date('i');
-	$d = intval($d);
-	if ($d % 2 == 0) {
+	\$d = date('i');
+	\$d = intval(\$d);
+	if (\$d % 2 == 0) {
 		header('Location: " . $GLOBALS["l1"] . "');
 	}else{
 		header('Location: " . $GLOBALS["l2"] . "');
