@@ -1,8 +1,8 @@
 <?php
 
 //Config stuff, touch this.
-define("ServerURL", "http://5050.degstu.com/l/"); //Enter a URL to your server here, MUST END IN "/l/" ex: http://5050.degstu.com/l/
-define("Whitelist", array("imgur.com", "giphy.com", "postimg.org", "gfycat.com", "minus.com", "youtube.com", "vimeo.com", "liveleak.com")); //Allowed domains
+@define("ServerURL", "http://5050.degstu.com/l/"); //Enter a URL to your server here, MUST END IN "/l/" ex: http://5050.degstu.com/l/
+@$wl = array("imgur.com", "giphy.com", "postimg.org", "gfycat.com", "minus.com", "youtube.com", "vimeo.com", "liveleak.com"); //Allowed domains
 error_reporting(0); //Comment out this line if you are just testing, keep it uncommented if this deployed
 //END CONFIG, DONT MESS WITH THE STUFF BELOW
 //except maybe uncomment the var_dumps if stuffs not working
@@ -26,12 +26,12 @@ function giveHost($host_with_subdomain) {
 }
 $l1v = giveHost($l1v);
 $l2v = giveHost($l2v);
-//var_dump(Whitelist);
+//var_dump($wl);
 //var_dump($l1);
 //var_dump($l2);
 //var_dump($l1v);
 //var_dump($l2v);
-if(!in_array($l1v, Whitelist) || !in_array($l2v, Whitelist)){die(print_r("Blocked URL(s).", true ));}
+if(!in_array($l1v, $wl) || !in_array($l2v, $wl)){die(print_r("Blocked URL(s).", true ));}
 
 //Generate
 function gen(){
