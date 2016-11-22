@@ -6,18 +6,43 @@
 
 <center>
 <font face="arial">
-<div style="width:40%;">
 
 <h1>50/50 by Degstu</h1>
-<b>YOU MUST INCLUDE "http://" IN YOUR URL!!</b><br/><br />
-Due to people using this platform to post spammy links, there is now a whitelist. Allowed hosts: <b>Imgur, Giphy, Postimage, Gfycat, Minus, YouTube, Vimeo, and Liveleak</b>.<p />
+
+<div style="width:40%;">
+
+<div style="border:2px solid #000000;">
+
+<h2>Link Requirements</h2>
+
+<ul>
+<li>Allowed hosts: Imgur, Giphy, Postimage, Gfycat, Minus, YouTube, Vimeo, and Liveleak.</li>
+<li>Your URLs must have "http://" or "https://" in the beginning.</li>
+</ul>
+
+</div>
+
+<p />
+
+<div style="border:2px solid #000000;">
+
+<h2>Create a Link</h2>
+
 <form action="process.php" method="post">
 <input type="hidden" name="v" value="1"/>
 <input type="text" name="l1" placeholder="URL 1"/><br />
 <input type="text" name="l2" placeholder="URL 2"/><br />
-<input type="submit" value="Generate"/>
+<input type="submit" value="Create"/>
 </form>
+
+</div>
+
 <p />
+
+<div style="border:2px solid #000000;">
+
+<h2>Stats</h2>
+
 <?php
 
 include("db_con.php");
@@ -25,14 +50,21 @@ include("db_con.php");
 $getstats = mysqli_query($db_con, "SELECT LinkViews,LinksCreated FROM `stats` WHERE id = 1");
 $stats = $getstats->fetch_assoc();
 
-echo "Links viewed: " . $stats[LinkViews] . "<br />";
-echo "Links created: " . $stats[LinksCreated];
+echo $stats[LinkViews] . " links viewed.<br />";
+echo $stats[LinksCreated] . " links created.<p />";
 
 ?>
+
 </div>
+
 <p />
-Degstu<p />
+
+Degstu.com<p />
+
 Under an MIT License
+
+</div>
+
 </font>
 </center>
 
