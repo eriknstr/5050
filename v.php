@@ -14,8 +14,10 @@ $upstat = mysqli_query($db_con, "UPDATE `stats` SET LinkViews = LinkViews + 1 WH
 $d = date('i');
 $d = intval($d);
 if ($d % 2 == 0) {
+	header('FiftyFifty-Alternate-Location: ' . $urls[url2]);
 	header('Location: ' . $urls[url1]);
 }else{
+	header('FiftyFifty-Alternate-Location: ' . $urls[url1]);
 	header('Location: ' . $urls[url2]);
 }
 ?>
