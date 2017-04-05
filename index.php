@@ -61,7 +61,7 @@ echo $stats[LinksCreated] . " links created.<p />";
 
 Degstu.com<p />
 
-Under an MIT License
+<a href="https://github.com/Degstu/5050">Open Source Under an MIT License</a>
 
 </div>
 
